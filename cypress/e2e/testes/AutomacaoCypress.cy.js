@@ -10,7 +10,10 @@ it('Visitar o site da Amazon e adicionar o produto mais vendido no carrinho', ()
   cy.title().should('be.equal','Amazon.com.br : Mais Vendidos')
   cy.get('[data-asin="8543105692"] > .sg-col-inner > .s-widget-container > .s-card-container > .a-spacing-base > .a-spacing-small > .s-title-instructions-style > .a-size-mini > .a-link-normal > .a-size-base-plus').click()
   cy.get('#add-to-cart-button').click()
+  cy.get('.a-size-medium-plus').should('have.text', '\nAdicionado ao carrinho\n')
+  cy.get(cy.get('#sc-buy-box-ptc-button > .a-button-inner > .a-button-input')).click()
 
+  
   })
 
 })
